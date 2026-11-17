@@ -37,7 +37,7 @@ export const RegulatorApplicationReviewScreen: React.FC<
   const [checklist, setChecklist] = useState(application.checklist);
   const [decisionMode, setDecisionMode] = useState<'approve' | 'reject' | null>(null);
   const [certNumber, setCertNumber] = useState(
-    `BPSB-RIA-2026/0${Math.floor(1225 + Math.random() * 65)}`
+    `DUMMY-BPSB-RIA-2026/0${Math.floor(1225 + Math.random() * 65)}`
   );
   const [expiryDate, setExpiryDate] = useState('2027-05-16');
   const [rejectionReason, setRejectionReason] = useState('');
@@ -225,7 +225,7 @@ export const RegulatorApplicationReviewScreen: React.FC<
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-[13px] font-semibold text-[#111827] mb-1.5">
-                    Nomor Sertifikat Resmi BPSB
+                    Nomor Sertifikat (Data Simulasi)
                   </label>
                   <input
                     type="text"
@@ -255,7 +255,7 @@ export const RegulatorApplicationReviewScreen: React.FC<
                   className="mt-0.5 w-4 h-4 accent-[#00843D] rounded cursor-pointer"
                 />
                 <span>
-                  Saya memastikan hasil pemeriksaan mutu dan dokumen batch {application.batchNumber} memenuhi standar SNI untuk diterbitkan sertifikat resminya.
+                  Saya memastikan hasil pemeriksaan mutu dan dokumen batch {application.batchNumber} memenuhi ambang mutu simulasi untuk penerbitan sertifikat contoh.
                 </span>
               </label>
 
@@ -334,7 +334,7 @@ export const RegulatorApplicationReviewScreen: React.FC<
             }}
           >
             <h2 className="text-[16px] font-semibold text-[#111827] pb-3 border-b border-[#E2E8F0]">
-              Informasi Batch, Varietas &amp; Detail Produksi
+              Informasi Batch, Bahan Tanam &amp; Detail Produksi
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-[13px]">
@@ -345,7 +345,7 @@ export const RegulatorApplicationReviewScreen: React.FC<
                 </div>
               </div>
               <div>
-                <div className="text-[#64748B]">Jenis &amp; Varietas Benih</div>
+                <div className="text-[#64748B]">Jenis &amp; Bahan Tanam</div>
                 <div className="font-semibold text-[#111827] mt-0.5">
                   {application.commodity} · {application.variety}
                 </div>
@@ -363,7 +363,7 @@ export const RegulatorApplicationReviewScreen: React.FC<
                 </div>
               </div>
               <div>
-                <div className="text-[#64748B]">Tanggal Produksi / Panen</div>
+                <div className="text-[#64748B]">Tanggal Produksi Bahan Tanam</div>
                 <div className="font-medium text-[#111827] tabular-nums mt-0.5">
                   {application.productionDate}
                 </div>
@@ -506,11 +506,11 @@ export const RegulatorApplicationReviewScreen: React.FC<
                   },
                   {
                     key: 'labQualityPassed',
-                    label: 'Hasil uji mutu laboratorium memenuhi ambang SNI.',
+                    label: 'Hasil uji mutu laboratorium memenuhi ambang mutu simulasi.',
                   },
                   {
                     key: 'fieldIsolationVerified',
-                    label: 'Pemeriksaan isolasi pertanaman & kemurnian varietas lapangan sesuai.',
+                    label: 'Pemeriksaan isolasi pertanaman & kemurnian bahan tanam lapangan sesuai.',
                   },
                   {
                     key: 'packagingSealVerified',
@@ -542,7 +542,7 @@ export const RegulatorApplicationReviewScreen: React.FC<
           {application.certificateNumber && (
             <div className="p-5 rounded-xl bg-[#DCFCE7]/60 border border-[#BBF7D0] space-y-1">
               <div className="text-[12px] font-semibold text-[#15803D]">
-                Sertifikat Resmi Telah Diterbitkan
+                Sertifikat Contoh Telah Diterbitkan
               </div>
               <div className="text-[16px] font-bold text-[#111827] tabular-nums">
                 {application.certificateNumber}

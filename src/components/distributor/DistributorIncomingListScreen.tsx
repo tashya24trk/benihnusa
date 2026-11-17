@@ -149,11 +149,7 @@ export const DistributorIncomingListScreen: React.FC<
                 className="h-10 pl-3 pr-8 rounded-lg border border-[#E2E8F0] bg-white text-[13px] font-medium text-[#111827] appearance-none hover:bg-[#F8FAFC] focus:outline-none focus:border-[#00843D] focus:ring-2 focus:ring-[#00843D]/20 cursor-pointer"
               >
                 <option value="Semua">Semua Jenis Benih</option>
-                <option value="Padi">Padi</option>
-                <option value="Jagung">Jagung</option>
-                <option value="Kedelai">Kedelai</option>
-                <option value="Cabai">Cabai</option>
-                <option value="Bawang Merah">Bawang Merah</option>
+                <option value="Kelapa Sawit">Kelapa Sawit</option>
               </select>
               <ChevronDown className="w-4 h-4 text-[#64748B] absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
             </div>
@@ -193,7 +189,7 @@ export const DistributorIncomingListScreen: React.FC<
                 <th className="py-3 pl-5 pr-3 whitespace-nowrap">Nomor Batch</th>
                 <th className="py-3 px-3 whitespace-nowrap">Produsen</th>
                 <th className="py-3 px-3 whitespace-nowrap">Jenis Benih</th>
-                <th className="py-3 px-3 whitespace-nowrap">Varietas</th>
+                <th className="py-3 px-3 whitespace-nowrap">Bahan Tanam</th>
                 <th className="py-3 px-3 whitespace-nowrap text-right">Jumlah Diterima</th>
                 <th className="py-3 px-3 whitespace-nowrap">Tanggal Transfer</th>
                 <th className="py-3 px-3 whitespace-nowrap">Status Penerimaan</th>

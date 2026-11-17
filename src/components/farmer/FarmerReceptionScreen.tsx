@@ -157,7 +157,7 @@ export const FarmerReceptionScreen: React.FC<FarmerReceptionScreenProps> = ({
               </div>
             </div>
             <div>
-              <div className="text-[#64748B]">Varietas &amp; Komoditas</div>
+              <div className="text-[#64748B]">Bahan Tanam &amp; Komoditas</div>
               <div className="font-semibold text-[#111827] mt-0.5">
                 {selectedIncoming.variety} ({selectedIncoming.commodity})
               </div>
@@ -368,7 +368,7 @@ export const FarmerReceptionScreen: React.FC<FarmerReceptionScreenProps> = ({
                   </span>
                 </div>
                 <div className="flex justify-between gap-2">
-                  <span className="text-[#64748B]">Varietas:</span>
+                  <span className="text-[#64748B]">Bahan Tanam:</span>
                   <span className="font-semibold text-[#111827]">
                     {selectedIncoming.variety}
                   </span>
@@ -471,7 +471,7 @@ export const FarmerReceptionScreen: React.FC<FarmerReceptionScreenProps> = ({
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Cari nomor batch, varietas, atau penyalur..."
+            placeholder="Cari nomor batch, bahan tanam, atau penyalur..."
             className="w-full h-11 pl-9 pr-3 rounded-lg border border-[#E2E8F0] text-[13px] text-[#111827] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#00843D] focus:ring-2 focus:ring-[#00843D]/20"
           />
         </div>
@@ -567,7 +567,7 @@ export const FarmerReceptionScreen: React.FC<FarmerReceptionScreenProps> = ({
               <tr className="bg-[#F8FAFC] border-b border-[#E2E8F0] text-[12px] font-semibold text-[#64748B]">
                 <th className="py-3 px-4">Nomor Batch</th>
                 <th className="py-3 px-4">Distributor</th>
-                <th className="py-3 px-4">Varietas</th>
+                <th className="py-3 px-4">Bahan Tanam</th>
                 <th className="py-3 px-4 text-right">Kuantitas</th>
                 <th className="py-3 px-4">Tanggal Kirim</th>
                 <th className="py-3 px-4">Status Penerimaan</th>

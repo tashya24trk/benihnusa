@@ -194,7 +194,7 @@ export const RegulatorDashboardScreen: React.FC<
         <MetricCard
           title="Sertifikasi Disetujui"
           value={stats.approvedApps.toLocaleString('id-ID')}
-          trendText="Lulus uji SNI"
+          trendText="Lulus uji simulasi"
           trendContext="label QR diterbitkan"
           icon={CheckCircle2}
         />
@@ -359,7 +359,7 @@ export const RegulatorDashboardScreen: React.FC<
                 <tr className="bg-[#F8FAFC] border-b border-[#E2E8F0] text-[11px] font-semibold uppercase tracking-[0.04em] text-[#64748B]">
                   <th className="py-3 pl-6 pr-3 whitespace-nowrap">Nomor Batch</th>
                   <th className="py-3 px-3 whitespace-nowrap">Produsen</th>
-                  <th className="py-3 px-3 whitespace-nowrap">Varietas</th>
+                  <th className="py-3 px-3 whitespace-nowrap">Bahan Tanam</th>
                   <th className="py-3 px-3 whitespace-nowrap">Status</th>
                   <th className="py-3 pl-3 pr-6 whitespace-nowrap text-right">Aksi</th>
                 </tr>

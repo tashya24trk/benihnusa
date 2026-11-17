@@ -32,7 +32,7 @@ export const ProducerRegisterBatchScreen: React.FC<ProducerRegisterBatchScreenPr
   onSaveBatch,
 }) => {
   const [commodity, setCommodity] = useState<CommodityType>(
-    editingBatch?.commodity ?? 'Padi'
+    editingBatch?.commodity ?? 'Kelapa Sawit'
   );
   const [variety, setVariety] = useState(editingBatch?.variety ?? '');
   const [seedClass, setSeedClass] = useState<SeedClass>(
@@ -109,7 +109,7 @@ export const ProducerRegisterBatchScreen: React.FC<ProducerRegisterBatchScreenPr
 
   const handleAction = (mode: 'draft' | 'submit') => {
     if (!variety.trim()) {
-      setFormError('Nama varietas wajib diisi sebelum menyimpan batch.');
+      setFormError('Identitas bahan tanam wajib diisi sebelum menyimpan batch.');
       return;
     }
     const qty = Number(quantityKg);
@@ -129,11 +129,7 @@ export const ProducerRegisterBatchScreen: React.FC<ProducerRegisterBatchScreenPr
     setFormError(null);
 
     const prefixMap: Record<CommodityType, string> = {
-      Padi: 'PD',
-      Jagung: 'JG',
-      Kedelai: 'KD',
-      Cabai: 'CB',
-      'Bawang Merah': 'BM',
+      'Kelapa Sawit': 'KS',
     };
 
     const batchNumber =
@@ -227,7 +223,7 @@ export const ProducerRegisterBatchScreen: React.FC<ProducerRegisterBatchScreenPr
             A. Informasi Batch
           </h2>
           <p className="text-[13px] text-[#64748B] mt-0.5">
-            Identitas komoditas, varietas, kelas benih, dan volume hasil panen.
+            Identitas komoditas, bahan tanaman, kelas benih, dan volume batch.
           </p>
         </div>
 
@@ -241,23 +237,19 @@ export const ProducerRegisterBatchScreen: React.FC<ProducerRegisterBatchScreenPr
               onChange={(e) => setCommodity(e.target.value as CommodityType)}
               className="w-full h-10 px-3 rounded-lg border border-[#E2E8F0] bg-white text-[14px] text-[#111827] focus:outline-none focus:border-[#00843D] focus:ring-2 focus:ring-[#00843D]/20"
             >
-              <option value="Padi">Padi</option>
-              <option value="Jagung">Jagung</option>
-              <option value="Kedelai">Kedelai</option>
-              <option value="Cabai">Cabai</option>
-              <option value="Bawang Merah">Bawang Merah</option>
+              <option value="Kelapa Sawit">Kelapa Sawit</option>
             </select>
           </div>
 
           <div>
             <label className="block text-[13px] font-semibold text-[#111827] mb-1.5">
-              Varietas
+              Identitas Bahan Tanam
             </label>
             <input
               type="text"
               value={variety}
               onChange={(e) => setVariety(e.target.value)}
-              placeholder="Contoh: Padi Inpari 32 HDB"
+              placeholder="Contoh: Bahan Tanam DxP (Tenera) (Simulasi) - Kelompok A"
               className="w-full h-10 px-3 rounded-lg border border-[#E2E8F0] text-[14px] text-[#111827] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#00843D] focus:ring-2 focus:ring-[#00843D]/20"
             />
           </div>
@@ -359,7 +351,7 @@ export const ProducerRegisterBatchScreen: React.FC<ProducerRegisterBatchScreenPr
               rows={3}
               value={additionalNotes}
               onChange={(e) => setAdditionalNotes(e.target.value)}
-              placeholder="Catatan perlakuan pascapanen, metode pengeringan, atau jenis kemasan..."
+              placeholder="Catatan penanganan bahan tanam, penyimpanan, atau jenis kemasan..."
               className="w-full p-3 rounded-lg border border-[#E2E8F0] text-[14px] text-[#111827] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#00843D] focus:ring-2 focus:ring-[#00843D]/20"
             />
           </div>
@@ -380,7 +372,7 @@ export const ProducerRegisterBatchScreen: React.FC<ProducerRegisterBatchScreenPr
               C. Dokumen Pendukung
             </h2>
             <p className="text-[13px] text-[#64748B] mt-0.5">
-              Unggah bukti asal benih sumber, laporan panen lapangan, atau dokumentasi kemasan gudang.
+              Unggah bukti sumber benih, pemeriksaan pembibitan, atau dokumentasi kemasan gudang.
             </p>
           </div>
 
@@ -400,13 +392,13 @@ export const ProducerRegisterBatchScreen: React.FC<ProducerRegisterBatchScreenPr
               type="button"
               onClick={() =>
                 handleAddSampleDocument(
-                  'Laporan Panen Lapangan',
-                  `Laporan_Panen_${commodity}_${productionDate}.pdf`
+                  'Catatan Produksi Benih',
+                  `Catatan_Produksi_Benih_${commodity}_${productionDate}.pdf`
                 )
               }
               className="h-9 px-3 rounded-lg border border-[#E2E8F0] bg-white hover:bg-[#F8FAFC] text-[12px] font-semibold text-[#334155] cursor-pointer"
             >
-              + Lampirkan Laporan Panen
+              + Lampirkan Catatan Produksi Benih
             </button>
           </div>
         </div>
@@ -485,7 +477,7 @@ export const ProducerRegisterBatchScreen: React.FC<ProducerRegisterBatchScreenPr
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] text-[13px]">
           <div>
-            <div className="text-[12px] text-[#64748B]">Jenis &amp; Varietas</div>
+            <div className="text-[12px] text-[#64748B]">Jenis &amp; Bahan Tanam</div>
             <div className="font-semibold text-[#111827] mt-0.5">
               {commodity} · {variety.trim() || 'Belum diisi'}
             </div>

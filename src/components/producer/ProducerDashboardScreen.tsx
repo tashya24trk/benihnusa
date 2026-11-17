@@ -178,7 +178,7 @@ export const ProducerDashboardScreen: React.FC<ProducerDashboardScreenProps> = (
         <MetricCard
           title="Batch Tersertifikasi"
           value={stats.certified.toLocaleString('id-ID')}
-          trendText="Memenuhi SNI"
+          trendText="Memenuhi mutu simulasi"
           trendContext="siap alih kepemilikan"
           icon={ShieldCheck}
         />

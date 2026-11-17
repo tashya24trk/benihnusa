@@ -18,14 +18,14 @@ export const CertificationModal: React.FC<CertificationModalProps> = ({
   onConfirmReject,
 }) => {
   const defaultCertNo = batch
-    ? `BPSB-${batch.province.slice(0, 3).toUpperCase()}-2026/${Math.floor(
+    ? `DUMMY-BPSB-${batch.province.slice(0, 3).toUpperCase()}-2026/${Math.floor(
         10000 + Math.random() * 89999
       )}`
     : '';
   const [certificateNumber, setCertificateNumber] = useState(defaultCertNo);
   const [expiryDate, setExpiryDate] = useState('2027-05-16');
   const [rejectReason, setRejectReason] = useState(
-    'Daya kecambah atau kadar air tidak memenuhi standar SNI perbenihan.'
+    'Daya kecambah atau kadar air tidak memenuhi ambang mutu simulasi.'
   );
 
   if (!batch || !mode) return null;
@@ -86,7 +86,7 @@ export const CertificationModal: React.FC<CertificationModalProps> = ({
             <>
               <div>
                 <label className="block text-[13px] font-semibold text-[#111827] mb-1.5">
-                  Nomor Sertifikat Resmi BPSB
+                  Nomor Sertifikat (Data Simulasi)
                 </label>
                 <input
                   type="text"

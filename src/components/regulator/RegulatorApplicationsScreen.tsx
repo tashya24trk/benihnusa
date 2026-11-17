@@ -171,7 +171,7 @@ export const RegulatorApplicationsScreen: React.FC<
                       <StatusBadge status={corr.status} />
                     </div>
                     <div className="text-[#334155]">
-                      <span className="text-[#64748B]">Varietas:</span>{' '}
+                      <span className="text-[#64748B]">Bahan Tanam:</span>{' '}
                       <strong>{corr.variety}</strong> · Diajukan{' '}
                       <span className="tabular-nums">{corr.submittedAt}</span>
                     </div>

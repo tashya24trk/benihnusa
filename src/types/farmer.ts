@@ -13,7 +13,7 @@ export type FarmerScreenId =
   | 'activity'
   | 'profile';
 
-export type CommodityType = 'Padi' | 'Jagung' | 'Kedelai' | 'Cabai' | 'Bawang Merah';
+export type CommodityType = 'Kelapa Sawit';
 
 export type FarmerSeedVerificationStatus =
   | 'Terverifikasi'

@@ -73,7 +73,7 @@ export const ProducerCertificationListScreen: React.FC<ProducerCertificationList
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Cari nomor batch, pengajuan, atau varietas..."
+              placeholder="Cari nomor batch, pengajuan, atau bahan tanam..."
               className="w-full h-10 pl-9 pr-3 rounded-lg border border-[#E2E8F0] text-[14px] text-[#111827] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#00843D] focus:ring-2 focus:ring-[#00843D]/20"
             />
           </div>
@@ -109,7 +109,7 @@ export const ProducerCertificationListScreen: React.FC<ProducerCertificationList
             <thead className="bg-[#F8FAFC] border-b border-[#E2E8F0]">
               <tr className="text-[11px] font-semibold uppercase tracking-[0.04em] text-[#64748B]">
                 <th className="py-3 pl-5 pr-3 whitespace-nowrap">Nomor Batch</th>
-                <th className="py-3 px-3 whitespace-nowrap">Varietas Benih</th>
+                <th className="py-3 px-3 whitespace-nowrap">Bahan Tanam</th>
                 <th className="py-3 px-3 whitespace-nowrap">Tanggal Pengajuan</th>
                 <th className="py-3 px-3 whitespace-nowrap">Status Sertifikasi</th>
                 <th className="py-3 px-3 whitespace-nowrap">Progres Pemeriksaan</th>

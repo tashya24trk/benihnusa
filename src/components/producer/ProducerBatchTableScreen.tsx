@@ -120,7 +120,7 @@ export const ProducerBatchTableScreen: React.FC<ProducerBatchTableScreenProps> =
                   setSearchQuery(e.target.value);
                   setPage(1);
                 }}
-                placeholder="Cari nomor batch, jenis, atau varietas..."
+                placeholder="Cari nomor batch, jenis, atau bahan tanam..."
                 className="w-full h-10 pl-9 pr-8 rounded-lg border border-[#E2E8F0] text-[14px] text-[#111827] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#00843D] focus:ring-2 focus:ring-[#00843D]/20"
               />
               {searchQuery && (
@@ -195,11 +195,7 @@ export const ProducerBatchTableScreen: React.FC<ProducerBatchTableScreenProps> =
                 className="h-10 pl-3 pr-8 rounded-lg border border-[#E2E8F0] bg-white text-[13px] font-medium text-[#111827] appearance-none hover:bg-[#F8FAFC] focus:outline-none focus:border-[#00843D] focus:ring-2 focus:ring-[#00843D]/20 cursor-pointer"
               >
                 <option value="Semua">Semua Jenis Benih</option>
-                <option value="Padi">Padi</option>
-                <option value="Jagung">Jagung</option>
-                <option value="Kedelai">Kedelai</option>
-                <option value="Cabai">Cabai</option>
-                <option value="Bawang Merah">Bawang Merah</option>
+                <option value="Kelapa Sawit">Kelapa Sawit</option>
               </select>
               <ChevronDown className="w-4 h-4 text-[#64748B] absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
             </div>
@@ -236,7 +232,7 @@ export const ProducerBatchTableScreen: React.FC<ProducerBatchTableScreenProps> =
               <tr className="text-[11px] font-semibold uppercase tracking-[0.04em] text-[#64748B]">
                 <th className="py-3 pl-5 pr-3 whitespace-nowrap">Nomor Batch</th>
                 <th className="py-3 px-3 whitespace-nowrap">Jenis Benih</th>
-                <th className="py-3 px-3 whitespace-nowrap">Varietas</th>
+                <th className="py-3 px-3 whitespace-nowrap">Bahan Tanam</th>
                 <th className="py-3 px-3 whitespace-nowrap text-right">Jumlah</th>
                 <th className="py-3 px-3 whitespace-nowrap">Tanggal Produksi</th>
                 <th className="py-3 px-3 whitespace-nowrap">Status Sertifikasi</th>

@@ -64,6 +64,85 @@ function readStorage<T>(key: string, fallback: T): T {
   }
 }
 
+const CURRENT_FARMER_BATCH_IDENTITIES = new Map(
+  [...INITIAL_FARMER_SEEDS, ...INITIAL_FARMER_INCOMING].map(
+    ({ batchNumber, variety }) => [batchNumber, variety]
+  )
+);
+const LEGACY_COMMODITY_PATTERN = /\b(?:Padi|Jagung|Kedelai|Cabai|Bawang Merah)\b/i;
+const DEFAULT_SIMULATION_IDENTITY =
+  'Bahan Tanam DxP (Tenera) (Simulasi) - Kelompok A';
+
+function getMigratedFarmerVariety(
+  batchNumber: string,
+  variety: string,
+  commodity?: string
+): string | undefined {
+  const isLegacy =
+    (commodity !== undefined && commodity !== 'Kelapa Sawit') ||
+    LEGACY_COMMODITY_PATTERN.test(variety);
+  if (!isLegacy) return undefined;
+  return (
+    CURRENT_FARMER_BATCH_IDENTITIES.get(batchNumber) ??
+    DEFAULT_SIMULATION_IDENTITY
+  );
+}
+
+function migrateFarmerSeeds(records: FarmerSeedBatch[]): FarmerSeedBatch[] {
+  return records.map((record) => {
+    const variety = getMigratedFarmerVariety(
+      record.batchNumber,
+      record.variety,
+      record.commodity
+    );
+    return variety
+      ? { ...record, commodity: 'Kelapa Sawit', variety }
+      : record;
+  });
+}
+
+function migrateFarmerIncoming(
+  records: FarmerIncomingBatch[]
+): FarmerIncomingBatch[] {
+  return records.map((record) => {
+    const variety = getMigratedFarmerVariety(
+      record.batchNumber,
+      record.variety,
+      record.commodity
+    );
+    return variety
+      ? { ...record, commodity: 'Kelapa Sawit', variety }
+      : record;
+  });
+}
+
+function migrateFarmerPlantings(
+  records: FarmerPlantingRecord[]
+): FarmerPlantingRecord[] {
+  return records.map((record) => {
+    const variety = getMigratedFarmerVariety(
+      record.batchNumber,
+      record.variety,
+      record.commodity
+    );
+    return variety
+      ? { ...record, commodity: 'Kelapa Sawit', variety }
+      : record;
+  });
+}
+
+function migrateFarmerCorrections(
+  records: PlantingCorrectionRequest[]
+): PlantingCorrectionRequest[] {
+  return records.map((record) => {
+    const variety = getMigratedFarmerVariety(
+      record.batchNumber,
+      record.variety
+    );
+    return variety ? { ...record, variety } : record;
+  });
+}
+
 function nowTimestampLabel(): string {
   const now = new Date();
   const hh = String(now.getHours()).padStart(2, '0');
@@ -79,16 +158,23 @@ export const FarmerApp: React.FC<FarmerAppProps> = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const [seeds, setSeeds] = useState<FarmerSeedBatch[]>(() =>
-    readStorage(STORAGE_KEYS.seeds, INITIAL_FARMER_SEEDS)
+    migrateFarmerSeeds(readStorage(STORAGE_KEYS.seeds, INITIAL_FARMER_SEEDS))
   );
   const [incoming, setIncoming] = useState<FarmerIncomingBatch[]>(() =>
-    readStorage(STORAGE_KEYS.incoming, INITIAL_FARMER_INCOMING)
+    migrateFarmerIncoming(
+      readStorage(STORAGE_KEYS.incoming, INITIAL_FARMER_INCOMING)
+    )
   );
   const [plantings, setPlantings] = useState<FarmerPlantingRecord[]>(() =>
-    readStorage(STORAGE_KEYS.plantings, INITIAL_PLANTING_RECORDS)
+    migrateFarmerPlantings(
+      readStorage(STORAGE_KEYS.plantings, INITIAL_PLANTING_RECORDS)
+    )
   );
   const [corrections, setCorrections] = useState<PlantingCorrectionRequest[]>(
-    () => readStorage(STORAGE_KEYS.corrections, INITIAL_CORRECTION_REQUESTS)
+    () =>
+      migrateFarmerCorrections(
+        readStorage(STORAGE_KEYS.corrections, INITIAL_CORRECTION_REQUESTS)
+      )
   );
   const [activities, setActivities] = useState<FarmerActivityItem[]>(() =>
     readStorage(STORAGE_KEYS.activities, INITIAL_FARMER_ACTIVITIES)
@@ -237,7 +323,7 @@ export const FarmerApp: React.FC<FarmerAppProps> = ({
                         actor: profile.fullName,
                         organization: profile.farmerGroup,
                         title: 'Diverifikasi QR oleh Petani',
-                        detail: `Label QR ${item.certificateNumber} dinyatakan asli & siap tanam.`,
+                        detail: `Label QR simulasi ${item.certificateNumber} cocok dengan data batch.`,
                       },
                     ],
                   }
@@ -267,7 +353,7 @@ export const FarmerApp: React.FC<FarmerAppProps> = ({
         pushActivity({
           category: 'Verifikasi QR',
           title: `Memverifikasi Keaslian QR Batch ${matchedSeed.batchNumber}`,
-          description: `Sertifikat ${matchedSeed.certificateNumber} (${matchedSeed.variety}) terverifikasi asli.`,
+          description: `Data sertifikat simulasi ${matchedSeed.certificateNumber} (${matchedSeed.variety}) cocok dengan catatan batch.`,
           batchNumber: matchedSeed.batchNumber,
         });
       }
@@ -303,14 +389,14 @@ export const FarmerApp: React.FC<FarmerAppProps> = ({
             actor: matchedIncoming.distributorName,
             organization: matchedIncoming.distributorName,
             title: 'Dikirim ke Petani',
-            detail: `${matchedIncoming.quantitySentKg} kg berlabel ${matchedIncoming.certificateNumber}.`,
+            detail: `${matchedIncoming.quantitySentKg} kg tercatat dengan nomor sertifikat simulasi ${matchedIncoming.certificateNumber}.`,
           },
         ],
       });
       pushActivity({
         category: 'Verifikasi QR',
         title: `Memeriksa QR Pengiriman ${matchedIncoming.batchNumber}`,
-        description: `Sertifikat ${matchedIncoming.certificateNumber} sah. Segera konfirmasi di menu Penerimaan Benih.`,
+        description: `Nomor sertifikat simulasi ${matchedIncoming.certificateNumber} cocok dengan kiriman. Konfirmasi penerimaan benih.`,
         batchNumber: matchedIncoming.batchNumber,
       });
       setActiveScreen('qr-result');

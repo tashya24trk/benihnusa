@@ -83,7 +83,7 @@ export const FarmerMySeedsScreen: React.FC<FarmerMySeedsScreenProps> = ({
               setSearchQuery(e.target.value);
               setPage(1);
             }}
-            placeholder="Cari nomor batch atau varietas..."
+            placeholder="Cari nomor batch atau bahan tanam..."
             className="w-full h-11 pl-9 pr-8 rounded-lg border border-[#E2E8F0] text-[14px] text-[#111827] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#00843D] focus:ring-2 focus:ring-[#00843D]/20"
           />
           {searchQuery && (
@@ -208,7 +208,7 @@ export const FarmerMySeedsScreen: React.FC<FarmerMySeedsScreenProps> = ({
               <tr className="text-[11px] font-semibold uppercase tracking-[0.04em] text-[#64748B]">
                 <th className="py-3 pl-5 pr-3 whitespace-nowrap">Nomor Batch</th>
                 <th className="py-3 px-3 whitespace-nowrap">Jenis Benih</th>
-                <th className="py-3 px-3 whitespace-nowrap">Varietas</th>
+                <th className="py-3 px-3 whitespace-nowrap">Bahan Tanam</th>
                 <th className="py-3 px-3 whitespace-nowrap">Produsen</th>
                 <th className="py-3 px-3 whitespace-nowrap">Distributor</th>
                 <th className="py-3 px-3 whitespace-nowrap text-right">Jumlah Diterima</th>

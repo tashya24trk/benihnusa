@@ -76,7 +76,7 @@ export const ProducerProfileScreen: React.FC<ProducerProfileScreenProps> = ({
               </div>
             </div>
             <div>
-              <div className="text-[#64748B]">Akreditasi Berlaku Hingga</div>
+              <div className="text-[#64748B]">Status Akreditasi (Data Simulasi)</div>
               <div className="font-semibold text-[#111827] tabular-nums mt-0.5">
                 {profile.accreditedUntil}
               </div>

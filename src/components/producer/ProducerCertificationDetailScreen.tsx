@@ -245,7 +245,7 @@ export const ProducerCertificationDetailScreen: React.FC<
               <span className="font-medium text-[#111827]">{application.commodity}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-[#64748B]">Varietas</span>
+              <span className="text-[#64748B]">Bahan Tanam</span>
               <span className="font-medium text-[#111827]">{application.variety}</span>
             </div>
             <div className="flex justify-between">

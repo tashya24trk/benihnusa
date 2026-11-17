@@ -94,7 +94,7 @@ export const BatchDetailDrawer: React.FC<BatchDetailDrawerProps> = ({
                 {batch.certificateNumber ?? 'Belum Diterbitkan Nomor Sertifikat'}
               </div>
               <div className="text-[12px] text-[#64748B] tabular-nums">
-                Panen: {batch.harvestDate} · Berlaku s/d: {batch.expiryDate ?? '-'}
+                Produksi: {batch.harvestDate} · Berlaku s/d: {batch.expiryDate ?? '-'}
               </div>
               <button
                 type="button"

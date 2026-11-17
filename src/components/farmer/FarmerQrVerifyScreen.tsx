@@ -158,7 +158,7 @@ export const FarmerQrVerifyScreen: React.FC<FarmerQrVerifyScreenProps> = ({
                   </div>
                 </div>
                 <div>
-                  <div className="text-[#64748B]">Jenis &amp; Varietas Benih</div>
+                  <div className="text-[#64748B]">Jenis &amp; Bahan Tanam</div>
                   <div className="font-semibold text-[#111827] mt-0.5">
                     {outcome.commodity} · {outcome.variety}
                   </div>

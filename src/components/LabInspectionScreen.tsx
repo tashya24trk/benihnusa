@@ -94,12 +94,11 @@ export const LabInspectionScreen: React.FC<LabInspectionScreenProps> = ({
   const purityNum = parseFloat(purityInput) || 0;
   const weedNum = parseFloat(weedInput) || 0;
 
-  const isHorticultureBulb = activeBatch?.commodity === 'Bawang Merah';
   const passGermination = germNum >= 80;
-  const passMoisture = isHorticultureBulb ? moistNum <= 85 : moistNum <= 13.0;
+  const passMoisture = moistNum <= 13.0;
   const passPurity = purityNum >= 98.0;
   const passWeed = weedNum <= 0.2;
-  const meetsAllSni = passGermination && passMoisture && passPurity && passWeed;
+  const meetsQualityThreshold = passGermination && passMoisture && passPurity && passWeed;
 
   const handleSaveMetrics = (e: React.FormEvent) => {
     e.preventDefault();
@@ -124,7 +123,7 @@ export const LabInspectionScreen: React.FC<LabInspectionScreenProps> = ({
             Uji Mutu &amp; Laboratorium BPSB
           </h1>
           <p className="mt-1 text-[14px] text-[#64748B]">
-            Evaluasi daya kecambah, kadar air, dan kemurnian fisik sampel benih terhadap standar sertifikasi SNI.
+            Evaluasi daya kecambah, kadar air, dan kemurnian fisik terhadap ambang mutu simulasi.
           </p>
         </div>
 
@@ -171,7 +170,7 @@ export const LabInspectionScreen: React.FC<LabInspectionScreenProps> = ({
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="Cari no. batch atau varietas..."
+                placeholder="Cari no. batch atau bahan tanam..."
                 className="w-full h-10 pl-9 pr-3 rounded-lg border border-[#E2E8F0] text-[13px] text-[#111827] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#00843D] focus:ring-2 focus:ring-[#00843D]/20"
               />
             </div>
@@ -252,28 +251,28 @@ export const LabInspectionScreen: React.FC<LabInspectionScreenProps> = ({
             </div>
 
             <form onSubmit={handleSaveMetrics} className="p-6 space-y-6">
-              {/* SNI Compliance Banner */}
+              {/* Seed quality status banner */}
               <div
                 className={`p-4 rounded-lg border flex items-start gap-3 ${
-                  meetsAllSni
+                  meetsQualityThreshold
                     ? 'bg-[#DCFCE7]/60 border-[#BBF7D0] text-[#15803D]'
                     : 'bg-[#FEF3C7]/70 border-[#FDE68A] text-[#B45309]'
                 }`}
               >
-                {meetsAllSni ? (
+                {meetsQualityThreshold ? (
                   <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5" />
                 ) : (
                   <AlertTriangle className="w-5 h-5 shrink-0 mt-0.5" />
                 )}
                 <div className="text-[13px]">
                   <p className="font-semibold">
-                    {meetsAllSni
-                      ? 'Memenuhi Ambang Batas Standar Mutu Benih (SNI)'
-                      : 'Terdapat Parameter di Bawah Standar Mutu Minimum'}
+                    {meetsQualityThreshold
+                      ? 'Memenuhi Ambang Mutu Simulasi'
+                      : 'Ada Parameter di Luar Ambang Mutu Simulasi'}
                   </p>
                   <p className="mt-0.5 opacity-90">
-                    {meetsAllSni
-                      ? 'Sampel layak disetujui untuk penerbitan sertifikat benih bina resmi.'
+                    {meetsQualityThreshold
+                      ? 'Sampel layak melanjutkan ke tahap sertifikasi simulasi.'
                       : 'Periksa kembali kadar air atau daya kecambah sebelum mengambil keputusan afkir/tolak.'}
                   </p>
                 </div>
@@ -307,7 +306,7 @@ export const LabInspectionScreen: React.FC<LabInspectionScreenProps> = ({
                       Kadar Air (%)
                     </label>
                     <span className={`text-[12px] font-semibold ${passMoisture ? 'text-[#16A34A]' : 'text-[#EF4444]'}`}>
-                      {isHorticultureBulb ? 'Maks. 85.0%' : 'Maks. 13.0%'}
+                      Maks. 13.0%
                     </span>
                   </div>
                   <input

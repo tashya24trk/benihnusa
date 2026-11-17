@@ -205,7 +205,7 @@ export const ProducerBatchDetailScreen: React.FC<ProducerBatchDetailScreenProps>
                 </div>
               </div>
               <div>
-                <div className="text-[#64748B]">Jenis &amp; Varietas</div>
+                <div className="text-[#64748B]">Jenis &amp; Bahan Tanam</div>
                 <div className="font-semibold text-[#111827] mt-0.5">
                   {batch.commodity} · {batch.variety}
                 </div>

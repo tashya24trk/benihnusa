@@ -20,7 +20,7 @@ export const AddBatchModal: React.FC<AddBatchModalProps> = ({
   onClose,
   onCreateBatch,
 }) => {
-  const [commodity, setCommodity] = useState<CommodityType>('Padi');
+  const [commodity, setCommodity] = useState<CommodityType>('Kelapa Sawit');
   const [variety, setVariety] = useState('');
   const [seedClass, setSeedClass] = useState<SeedClass>('Benih Sebar (BR)');
   const [producerId, setProducerId] = useState<string>(producers[0]?.id ?? '');
@@ -34,11 +34,7 @@ export const AddBatchModal: React.FC<AddBatchModalProps> = ({
   if (!open) return null;
 
   const commodityPrefix: Record<CommodityType, string> = {
-    Padi: 'PD',
-    Jagung: 'JG',
-    Kedelai: 'KD',
-    Cabai: 'CB',
-    'Bawang Merah': 'BM',
+    'Kelapa Sawit': 'KS',
   };
 
   const generatedBatchCode = `BNT-2026-${commodityPrefix[commodity]}-${Math.floor(
@@ -48,7 +44,7 @@ export const AddBatchModal: React.FC<AddBatchModalProps> = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!variety.trim()) {
-      setErrorMsg('Nama varietas benih wajib diisi.');
+      setErrorMsg('Identitas bahan tanam wajib diisi.');
       return;
     }
     const producer = producers.find((p) => p.id === producerId) ?? producers[0];
@@ -132,7 +128,7 @@ export const AddBatchModal: React.FC<AddBatchModalProps> = ({
               Registrasi Batch Benih Baru
             </h2>
             <p className="text-[13px] text-[#64748B] mt-0.5">
-              Daftarkan lot benih hasil panen untuk pemeriksaan laboratorium BPSB.
+              Daftarkan lot bahan tanam kelapa sawit untuk pemeriksaan mutu.
             </p>
           </div>
           <button
@@ -162,11 +158,7 @@ export const AddBatchModal: React.FC<AddBatchModalProps> = ({
                 onChange={(e) => setCommodity(e.target.value as CommodityType)}
                 className="w-full h-10 px-3 rounded-lg border border-[#E2E8F0] bg-white text-[14px] text-[#111827] focus:outline-none focus:border-[#00843D] focus:ring-2 focus:ring-[#00843D]/20"
               >
-                <option value="Padi">Padi</option>
-                <option value="Jagung">Jagung</option>
-                <option value="Kedelai">Kedelai</option>
-                <option value="Cabai">Cabai</option>
-                <option value="Bawang Merah">Bawang Merah</option>
+                <option value="Kelapa Sawit">Kelapa Sawit</option>
               </select>
             </div>
 
@@ -189,13 +181,13 @@ export const AddBatchModal: React.FC<AddBatchModalProps> = ({
 
           <div>
             <label className="block text-[13px] font-semibold text-[#111827] mb-1.5">
-              Nama Varietas Unggul
+              Identitas Bahan Tanam
             </label>
             <input
               type="text"
               value={variety}
               onChange={(e) => setVariety(e.target.value)}
-              placeholder="Contoh: Padi Inpari 32 HDB atau Jagung Hibrida Bisi-18"
+              placeholder="Contoh: Bahan Tanam DxP (Tenera) (Simulasi) - Kelompok A"
               className="w-full h-10 px-3 rounded-lg border border-[#E2E8F0] text-[14px] text-[#111827] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#00843D] focus:ring-2 focus:ring-[#00843D]/20"
             />
           </div>
@@ -265,7 +257,7 @@ export const AddBatchModal: React.FC<AddBatchModalProps> = ({
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-[13px] font-semibold text-[#111827] mb-1.5">
-                Tanggal Panen
+                Tanggal Produksi Bahan Tanam
               </label>
               <input
                 type="date"

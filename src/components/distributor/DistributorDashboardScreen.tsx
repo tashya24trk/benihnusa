@@ -302,7 +302,7 @@ export const DistributorDashboardScreen: React.FC<DistributorDashboardScreenProp
                 Stok Benih Saat Ini
               </h2>
               <p className="text-[13px] text-[#64748B] mt-0.5">
-                Ringkasan persediaan berdasarkan varietas benih
+                Ringkasan persediaan berdasarkan bahan tanam benih
               </p>
             </div>
             <button

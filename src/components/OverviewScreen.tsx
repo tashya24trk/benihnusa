@@ -84,20 +84,12 @@ export const OverviewScreen: React.FC<OverviewScreenProps> = ({
   }, [batches]);
 
   const chartSeries = useMemo(() => {
-    const factor =
-      chartCommodity === 'Semua'
-        ? 1
-        : chartCommodity === 'Padi'
-        ? 0.56
-        : chartCommodity === 'Jagung'
-        ? 0.24
-        : 0.2;
     return MONTHLY_CERTIFICATION_SERIES.map((item) => ({
       ...item,
-      scaledKg: Math.round(item.totalKg * factor),
-      scaledBatches: Math.max(4, Math.round(item.batches * factor)),
+      scaledKg: item.totalKg,
+      scaledBatches: item.batches,
     }));
-  }, [chartCommodity]);
+  }, []);
 
   const maxChartKg = Math.max(...chartSeries.map((c) => c.scaledKg), 1);
 
@@ -133,7 +125,7 @@ export const OverviewScreen: React.FC<OverviewScreenProps> = ({
           icon={Sprout}
         />
         <MetricCard
-          title="Sertifikat Resmi Terbit"
+          title="Sertifikat Simulasi Terbit"
           value={stats.certifiedCount.toLocaleString('id-ID')}
           trendText="+8.2%"
           trendContext="teregistrasi BPSB"
@@ -143,7 +135,7 @@ export const OverviewScreen: React.FC<OverviewScreenProps> = ({
           title="Rasio Lolos Uji Mutu"
           value={`${stats.passRate}%`}
           trendText="+1.4%"
-          trendContext="ambang batas SNI 80%"
+          trendContext="ambang mutu simulasi 80%"
           icon={QrCode}
         />
         <MetricCard
@@ -176,7 +168,7 @@ export const OverviewScreen: React.FC<OverviewScreenProps> = ({
             </div>
 
             <div className="inline-flex items-center p-1 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg self-start">
-              {(['Semua', 'Padi', 'Jagung', 'Kedelai'] as const).map((tab) => (
+              {(['Semua', 'Kelapa Sawit'] as const).map((tab) => (
                 <button
                   key={tab}
                   type="button"
@@ -218,7 +210,7 @@ export const OverviewScreen: React.FC<OverviewScreenProps> = ({
                           {(item.scaledKg / 1000).toFixed(1)} Ton · {item.scaledBatches} batch
                         </div>
                         <div className="text-emerald-300 tabular-nums">
-                          Lolos SNI: {item.passRate}%
+                          Lolos mutu simulasi: {item.passRate}%
                         </div>
                       </div>
                     )}
@@ -341,7 +333,7 @@ export const OverviewScreen: React.FC<OverviewScreenProps> = ({
               <thead>
                 <tr className="bg-[#F8FAFC] border-b border-[#E2E8F0] text-[11px] font-semibold uppercase tracking-[0.04em] text-[#64748B]">
                   <th className="py-3 px-6 whitespace-nowrap">No. Batch</th>
-                  <th className="py-3 px-4 whitespace-nowrap">Varietas &amp; Kelas</th>
+                  <th className="py-3 px-4 whitespace-nowrap">Bahan Tanam &amp; Kelas</th>
                   <th className="py-3 px-4 whitespace-nowrap">Penangkar</th>
                   <th className="py-3 px-4 whitespace-nowrap text-right">Daya Kecambah</th>
                   <th className="py-3 px-4 whitespace-nowrap text-right">Kadar Air</th>

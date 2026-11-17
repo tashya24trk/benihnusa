@@ -133,7 +133,7 @@ export const DistributorIncomingDetailScreen: React.FC<
                 </div>
               </div>
               <div>
-                <div className="text-[#64748B]">Jenis &amp; Varietas</div>
+                <div className="text-[#64748B]">Jenis &amp; Bahan Tanam</div>
                 <div className="font-medium text-[#111827] mt-0.5">
                   {batch.commodity} · {batch.variety}
                 </div>

@@ -40,7 +40,7 @@ export const RegulatorProfileScreen: React.FC<RegulatorProfileScreenProps> = ({
           Profil Organisasi
         </h1>
         <p className="mt-1 text-[14px] text-[#64748B]">
-          Identitas akreditasi lembaga pengawasan &amp; sertifikasi benih resmi serta informasi kontak layanan.
+          Profil simulasi lembaga pengawasan &amp; sertifikasi benih serta informasi kontak layanan.
         </p>
       </div>
 
@@ -63,7 +63,7 @@ export const RegulatorProfileScreen: React.FC<RegulatorProfileScreenProps> = ({
               </h2>
               <div className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-[#15803D] mt-0.5">
                 <ShieldCheck className="w-4 h-4" />
-                <span>Lembaga Sertifikasi Terakreditasi</span>
+                <span>Profil Sertifikasi Simulasi</span>
               </div>
             </div>
           </div>
@@ -76,13 +76,13 @@ export const RegulatorProfileScreen: React.FC<RegulatorProfileScreenProps> = ({
               </div>
             </div>
             <div>
-              <div className="text-[#64748B]">Nomor Akreditasi KAN / Kementan</div>
+              <div className="text-[#64748B]">Akreditasi (Data Simulasi)</div>
               <div className="font-semibold text-[#111827] tabular-nums mt-0.5">
                 {profile.accreditationNumber}
               </div>
             </div>
             <div>
-              <div className="text-[#64748B]">Dasar Kewenangan</div>
+              <div className="text-[#64748B]">Dasar Kewenangan (Data Simulasi)</div>
               <div className="font-medium text-[#111827] mt-0.5">
                 {profile.mandateBasis}
               </div>

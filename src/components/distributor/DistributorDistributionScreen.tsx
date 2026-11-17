@@ -199,7 +199,7 @@ export const DistributorDistributionScreen: React.FC<
                 </div>
 
                 <div className="p-3.5 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] text-[13px]">
-                  <div className="text-[#64748B]">Nomor Batch &amp; Varietas</div>
+                  <div className="text-[#64748B]">Nomor Batch &amp; Bahan Tanam</div>
                   <div className="font-semibold text-[#111827] mt-0.5 tabular-nums">
                     {activeBatch?.batchNumber} · {activeBatch?.variety}
                   </div>
@@ -349,7 +349,7 @@ export const DistributorDistributionScreen: React.FC<
                 </div>
               </div>
               <div>
-                <div className="text-[#64748B]">Batch &amp; Varietas</div>
+                <div className="text-[#64748B]">Batch &amp; Bahan Tanam</div>
                 <div className="font-semibold text-[#111827] mt-0.5 tabular-nums">
                   {activeBatch?.batchNumber ?? '-'} · {activeBatch?.variety ?? '-'}
                 </div>
@@ -402,7 +402,7 @@ export const DistributorDistributionScreen: React.FC<
                 type="text"
                 value={historySearch}
                 onChange={(e) => setHistorySearch(e.target.value)}
-                placeholder="Cari nomor batch, penerima, atau varietas..."
+                placeholder="Cari nomor batch, penerima, atau bahan tanam..."
                 className="w-full h-10 pl-9 pr-3 rounded-lg border border-[#E2E8F0] text-[14px] text-[#111827] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#00843D] focus:ring-2 focus:ring-[#00843D]/20"
               />
             </div>

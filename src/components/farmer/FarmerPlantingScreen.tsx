@@ -92,7 +92,7 @@ export const FarmerPlantingScreen: React.FC<FarmerPlantingScreenProps> = ({
 
     setSelectedBatchId(defaultBatch?.id ?? '');
     setPlantingDate('2026-11-16');
-    setLocation('Petak Sawah Desa Pulau Lawas');
+    setLocation('Petak Kebun Desa Pulau Lawas');
     setPlantedQuantityKg(
       defaultBatch
         ? String(
@@ -124,7 +124,7 @@ export const FarmerPlantingScreen: React.FC<FarmerPlantingScreenProps> = ({
         return;
       }
       if (!location.trim()) {
-        setFormError('Lokasi lahan atau nama petak sawah wajib diisi.');
+        setFormError('Lokasi kebun atau nama petak tanam wajib diisi.');
         return;
       }
       const qtyNum = Number(plantedQuantityKg);
@@ -291,7 +291,7 @@ export const FarmerPlantingScreen: React.FC<FarmerPlantingScreenProps> = ({
                     rows={3}
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
-                    placeholder="Contoh: Sistem tanam jajar legowo 2:1, irigasi teknis lancar."
+                    placeholder="Contoh: Nomor petak kebun dan pola tanam yang digunakan."
                     className="w-full p-3 rounded-lg border border-[#E2E8F0] text-[14px] text-[#111827] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#00843D] focus:ring-2 focus:ring-[#00843D]/20"
                   />
                 </div>
@@ -305,7 +305,7 @@ export const FarmerPlantingScreen: React.FC<FarmerPlantingScreenProps> = ({
                   </div>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-[13px]">
                     <div>
-                      <span className="text-[#64748B] block text-[11px]">Batch &amp; Varietas</span>
+                      <span className="text-[#64748B] block text-[11px]">Batch &amp; Bahan Tanam</span>
                       <span className="font-semibold text-[#111827] tabular-nums">
                         {activeBatch.batchNumber}
                       </span>
@@ -429,7 +429,7 @@ export const FarmerPlantingScreen: React.FC<FarmerPlantingScreenProps> = ({
               </div>
             </div>
             <div>
-              <div className="text-[#64748B]">Varietas &amp; Komoditas</div>
+              <div className="text-[#64748B]">Bahan Tanam &amp; Komoditas</div>
               <div className="font-semibold text-[#111827] mt-0.5">
                 {selectedRecord.variety} ({selectedRecord.commodity})
               </div>
@@ -674,7 +674,7 @@ export const FarmerPlantingScreen: React.FC<FarmerPlantingScreenProps> = ({
             <thead>
               <tr className="bg-[#F8FAFC] border-b border-[#E2E8F0] text-[12px] font-semibold text-[#64748B]">
                 <th className="py-3 px-4">Kode Catatan</th>
-                <th className="py-3 px-4">Batch &amp; Varietas</th>
+                <th className="py-3 px-4">Batch &amp; Bahan Tanam</th>
                 <th className="py-3 px-4">Tanggal Tanam</th>
                 <th className="py-3 px-4">Lokasi Lahan</th>
                 <th className="py-3 px-4 text-right">Benih &amp; Luas</th>

@@ -119,7 +119,7 @@ export const DistributorInventoryScreen: React.FC<
                   setSearchQuery(e.target.value);
                   setPage(1);
                 }}
-                placeholder="Cari nomor batch, varietas, atau sertifikat..."
+                placeholder="Cari nomor batch, bahan tanam, atau sertifikat..."
                 className="w-full h-10 pl-9 pr-8 rounded-lg border border-[#E2E8F0] text-[14px] text-[#111827] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#00843D] focus:ring-2 focus:ring-[#00843D]/20"
               />
               {searchQuery && (
@@ -148,11 +148,7 @@ export const DistributorInventoryScreen: React.FC<
                 className="h-10 pl-8 pr-8 rounded-lg border border-[#E2E8F0] bg-white text-[13px] font-medium text-[#111827] appearance-none hover:bg-[#F8FAFC] focus:outline-none focus:border-[#00843D] focus:ring-2 focus:ring-[#00843D]/20 cursor-pointer"
               >
                 <option value="Semua">Semua Jenis Benih</option>
-                <option value="Padi">Padi</option>
-                <option value="Jagung">Jagung</option>
-                <option value="Kedelai">Kedelai</option>
-                <option value="Cabai">Cabai</option>
-                <option value="Bawang Merah">Bawang Merah</option>
+                <option value="Kelapa Sawit">Kelapa Sawit</option>
               </select>
               <ChevronDown className="w-4 h-4 text-[#64748B] absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
             </div>
@@ -197,7 +193,7 @@ export const DistributorInventoryScreen: React.FC<
                     onClick={() => handleSort('variety')}
                     className="inline-flex items-center gap-1 hover:text-[#111827] cursor-pointer"
                   >
-                    <span>Varietas</span>
+                    <span>Bahan Tanam</span>
                     <ArrowUpDown className="w-3 h-3" />
                   </button>
                 </th>

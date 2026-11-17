@@ -146,7 +146,7 @@ export const BatchManagementScreen: React.FC<BatchManagementScreenProps> = ({
       'No. Batch',
       'No. Sertifikat',
       'Komoditas',
-      'Varietas',
+      'Bahan Tanam',
       'Kelas Benih',
       'Produsen / Penangkar',
       'Provinsi',
@@ -232,7 +232,7 @@ export const BatchManagementScreen: React.FC<BatchManagementScreenProps> = ({
                   setSearchQuery(e.target.value);
                   setPage(1);
                 }}
-                placeholder="Cari no. batch, varietas, atau produsen..."
+                placeholder="Cari no. batch, bahan tanam, atau produsen..."
                 className="w-full h-10 pl-9 pr-8 rounded-lg border border-[#E2E8F0] text-[14px] text-[#111827] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#00843D] focus:ring-2 focus:ring-[#00843D]/20"
               />
               {searchQuery && (
@@ -288,11 +288,7 @@ export const BatchManagementScreen: React.FC<BatchManagementScreenProps> = ({
                 className="h-10 pl-3 pr-8 rounded-lg border border-[#E2E8F0] bg-white text-[13px] font-medium text-[#111827] appearance-none hover:bg-[#F8FAFC] focus:outline-none focus:border-[#00843D] focus:ring-2 focus:ring-[#00843D]/20 cursor-pointer"
               >
                 <option value="Semua">Semua Komoditas</option>
-                <option value="Padi">Padi</option>
-                <option value="Jagung">Jagung</option>
-                <option value="Kedelai">Kedelai</option>
-                <option value="Cabai">Cabai</option>
-                <option value="Bawang Merah">Bawang Merah</option>
+                <option value="Kelapa Sawit">Kelapa Sawit</option>
               </select>
               <ChevronDown className="w-4 h-4 text-[#64748B] absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
             </div>
@@ -414,7 +410,7 @@ export const BatchManagementScreen: React.FC<BatchManagementScreenProps> = ({
                     <ArrowUpDown className="w-3 h-3" />
                   </button>
                 </th>
-                <th className="py-3 px-3 whitespace-nowrap">Varietas &amp; Kelas</th>
+                <th className="py-3 px-3 whitespace-nowrap">Bahan Tanam &amp; Kelas</th>
                 <th className="py-3 px-3 whitespace-nowrap">Produsen / Penangkar</th>
                 <th className="py-3 px-3 whitespace-nowrap text-right">
                   <button

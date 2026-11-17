@@ -101,7 +101,7 @@ export const RegulatorRevocationScreen: React.FC<
           <div className="flex items-center gap-2 pb-3 border-b border-[#E2E8F0]">
             <ShieldAlert className="w-5 h-5 text-[#EF4444]" />
             <h2 className="text-[16px] font-semibold text-[#111827]">
-              Formulir Pencabutan Sertifikat Resmi
+              Formulir Pencabutan Sertifikat (Data Simulasi)
             </h2>
           </div>
 

@@ -377,7 +377,7 @@ export function CertificationRegulatorApp({
                   actor: profile.activeInspectorName,
                   role: 'Regulator BPSB',
                   action: `Sertifikasi Disetujui (${certificateNumber})`,
-                  note: `Sertifikat resmi diterbitkan dan berlaku hingga ${expiryDate}.`,
+                  note: `Sertifikat simulasi diterbitkan dan berlaku hingga ${expiryDate}.`,
                 },
                 ...a.reviewHistory,
               ],
@@ -457,7 +457,7 @@ export function CertificationRegulatorApp({
       target.batchNumber,
       target.batchId
     );
-    showToast(`Sertifikat ${certificateNumber} resmi diterbitkan.`);
+    showToast(`Sertifikat simulasi ${certificateNumber} diterbitkan.`);
   };
 
   const handleRejectApplication = (appId: string, reason: string) => {

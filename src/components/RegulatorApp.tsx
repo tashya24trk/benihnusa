@@ -141,7 +141,7 @@ export function RegulatorApp({ onSwitchPortal }: RegulatorAppProps) {
               timestamp: `16 Nov 2026 ${timeStr} WIB`,
               actor: 'Ir. Sari Wijaya',
               role: 'Inspektur Madya BPSB',
-              action: `Sertifikat Resmi Diterbitkan (${certificateNumber})`,
+              action: `Sertifikat Simulasi Diterbitkan (${certificateNumber})`,
               note: `Label ketertelusuran QR aktif berlaku hingga ${expiryDate}.`,
             },
             ...b.auditTrail,
@@ -199,7 +199,7 @@ export function RegulatorApp({ onSwitchPortal }: RegulatorAppProps) {
         updatedCount += 1;
         const certNo =
           b.certificateNumber ??
-          `BPSB-${b.province.slice(0, 3).toUpperCase()}-2026/${12000 + idx}`;
+          `DUMMY-BPSB-${b.province.slice(0, 3).toUpperCase()}-2026/${12000 + idx}`;
         return {
           ...b,
           status: 'Sertifikat Terbit',
