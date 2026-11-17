@@ -1,0 +1,6 @@
+{
+  "name": "BenihNusa Track",
+  "description": "Platform ketertelusuran dan sertifikasi benih pertanian nasional untuk pengawasan mutu laboratorium BPSB, manajemen batch, dan logistik distribusi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
