@@ -17,10 +17,10 @@ export const INITIAL_ORGANIZATION_PROFILE: ProducerOrganizationProfile = {
   province: 'Riau',
   address: 'Jl. Agro Lestari No. 48, Kec. Rumbai, Kota Pekanbaru, Riau',
   totalAcreageHa: 145,
-  primaryCommodities: ['Padi', 'Jagung', 'Cabai', 'Kedelai'],
+  primaryCommodities: ['Kelapa Sawit'],
   warehouseCapacityTon: 120,
   operationalNotes:
-    'Gudang utama dilengkapi pengatur kelembapan RH 50% dan ruang dingin benih hortikultura.',
+    'Fasilitas pembibitan dan penyimpanan benih kelapa sawit dengan pencatatan asal benih dan riwayat distribusi.',
 };
 
 export const INITIAL_PRODUCER_BATCHES: ProducerBatch[] = [

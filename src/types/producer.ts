@@ -9,7 +9,7 @@ export type ProducerScreenId =
   | 'activity'
   | 'profile';
 
-export type CommodityType = 'Padi' | 'Jagung' | 'Kedelai' | 'Cabai' | 'Bawang Merah';
+export type CommodityType = 'Kelapa Sawit';
 
 export type SeedClass =
   | 'Benih Penjenis (BS)'
